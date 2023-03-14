@@ -4,23 +4,30 @@ using UnityEngine;
 
 public class sliceObj : MonoBehaviour
 {
-    public Material materialSliceSide;                                                         // kesilen bölgenin rengi, materyali
+    public Material[] sliceMats;                                                                    // random renk olacak sonrasýnda
+    public Material materialSliceSide;
     public float explosionForce = 150;
     public float explosionRadius;
 
     public bool gravity, kinematik;
-
-
+    int counter = 0;
     private void OnTriggerEnter(Collider other)
     {
+       
         if (other.gameObject.CompareTag("canSlice"))
         {
-            SlicedHull sliceObj = Slice(other.gameObject, materialSliceSide);
-            GameObject slicedObjTop = sliceObj.CreateUpperHull(other.gameObject, materialSliceSide);
-            GameObject slicedObjDown = sliceObj.CreateLowerHull(other.gameObject, materialSliceSide);
+            if (counter >= sliceMats.Length)
+            {
+                counter = 0;
+            }
+            SlicedHull sliceObj = Slice(other.gameObject, sliceMats[counter]);
+            GameObject slicedObjTop = sliceObj.CreateUpperHull(other.gameObject, sliceMats[counter]);
+            GameObject slicedObjDown = sliceObj.CreateLowerHull(other.gameObject, sliceMats[counter]);
+            // slicedObjDown.GetComponent<Material>().color = matColors[Random.Range(0, matColors.Length)];
             AddComponent(slicedObjTop);
             AddComponent(slicedObjDown);
             Destroy(other.gameObject);                                                         // ana dokunulan objeyi yok ettik çünkü bir üst birde alt objesini olluþturduk.
+            counter++;
         }
     }
 
@@ -30,7 +37,7 @@ public class sliceObj : MonoBehaviour
     }
 
     void AddComponent(GameObject obj)
-    {                                                        // kesilen objelere hangi komponentleri vermek istiyorsak onlarý eklediðimzi method
+    {                                                                                         // kesilen objelere hangi komponentleri vermek istiyorsak onlarý eklediðimzi method
         var rigidbody = obj.AddComponent<Rigidbody>();                                        // yere düþmesini ve hareketini kontrol edebilmek için rigidbody
         rigidbody.useGravity = false;                                                         // default rigidbody component gravitysini false yaptýk.
         obj.AddComponent<BoxCollider>();                                                      // tekrar kesilebilmesi için collider
@@ -45,6 +52,7 @@ public class sliceObj : MonoBehaviour
     {
         yield return new WaitForSeconds(sec);
         rb.useGravity = gravity;
+        yield break;
     }
 }
 
