@@ -5,7 +5,6 @@ using UnityEngine;
 public class sliceObj : MonoBehaviour
 {
     public Material[] sliceMats;                                                                    // random renk olacak sonrasýnda
-    public Material materialSliceSide;
     public float explosionForce = 150;
     public float explosionRadius;
 
@@ -23,6 +22,7 @@ public class sliceObj : MonoBehaviour
             SlicedHull sliceObj = Slice(other.gameObject, sliceMats[counter]);
             GameObject slicedObjTop = sliceObj.CreateUpperHull(other.gameObject, sliceMats[counter]);
             GameObject slicedObjDown = sliceObj.CreateLowerHull(other.gameObject, sliceMats[counter]);
+            slicedObjTop.GetComponent<MeshRenderer>().materials[1].color = Color.black;
             // slicedObjDown.GetComponent<Material>().color = matColors[Random.Range(0, matColors.Length)];
             AddComponent(slicedObjTop);
             AddComponent(slicedObjDown);
