@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        FindObjectOfType<PlayerController>().Jump();
         isGameStarted = true;
     }
 

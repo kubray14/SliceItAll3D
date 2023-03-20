@@ -52,9 +52,9 @@ public class PlayerController : MonoBehaviour
         RotateControl();
     }
 
-    private void Jump()
+    public void Jump()
     {
-        if (!GameManager.Instance.isGamePaused && GameManager.Instance.isGameStarted)
+        if (!GameManager.Instance.isGamePaused)
         {
             sliceController.sliceNum = 0;
             rb.isKinematic = false;
