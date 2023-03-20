@@ -4,7 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - Ground
+=======
+  - canSlice
+  - Slicer
+  - Knife
+  - Ground
+  - Sharp
+>>>>>>> kubra
   layers:
   - Default
   - TransparentFX
@@ -14,9 +22,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Sliced
+  - Slicer
+  - KnifeBody
   - 
   - 
   - 
