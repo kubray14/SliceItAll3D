@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
-   // [SerializeField] private float sliceSpeed;
+    // [SerializeField] private float sliceSpeed;
     [SerializeField] private float jumpSpeed;
     [SerializeField] private float forwardSpeed;
     [SerializeField] private float rotateSpeed;
@@ -54,17 +54,21 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        sliceController.sliceNum = 0;
-        rb.isKinematic = false;
-        isSlicing = false;
-        isFalling = false;
-        isStuck = false;
-        rotateSpeed = maxRotateSpeed;
-        rb.velocity = Vector3.zero;
-        rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
-        rb.AddForce(Vector3.forward * forwardSpeed, ForceMode.Impulse);
-        StartCoroutine(StuckProtect_Coroutine(0.4f));
-        DOTween.KillAll(); // LerpRotateSpeed metodu çalýþýyorsa kapatýyoruz. 
+        if (!GameManager.Instance.isGamePaused && GameManager.Instance.isGameStarted)
+        {
+            sliceController.sliceNum = 0;
+            rb.isKinematic = false;
+            isSlicing = false;
+            isFalling = false;
+            isStuck = false;
+            rotateSpeed = maxRotateSpeed;
+            rb.velocity = Vector3.zero;
+            rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+            rb.AddForce(Vector3.forward * forwardSpeed, ForceMode.Impulse);
+            StartCoroutine(StuckProtect_Coroutine(0.4f));
+            DOTween.KillAll(); // LerpRotateSpeed metodu çalýþýyorsa kapatýyoruz. 
+        }
+
     }
 
     private void CheckFalling()
@@ -115,14 +119,14 @@ public class PlayerController : MonoBehaviour
             if (transform.rotation.eulerAngles.x >= 15 && transform.rotation.eulerAngles.x <= 90 && transform.rotation.eulerAngles.y == 0 && transform.rotation.eulerAngles.z == 0) // Düzgün bir kesme açýsýndaysak.
             {
                 //transform.Rotate(sliceSpeed * 360 * Time.deltaTime, 0, 0, Space.Self);
-                 return;
+                return;
             }
             else
             {
                 //float sliceAngle = 25f;
                 //if (transform.rotation.eulerAngles.x >= 270 || transform.rotation.eulerAngles.x <= sliceAngle) // Býçaðýn ucu 25 derece ön aþaðýya bakana kadar. Yani kesme pozisyonu
                 //{
-                    transform.Rotate(rotateSpeed * 360 * Time.deltaTime, 0, 0, Space.Self); // Döndürmeye devam ediyoruz.
+                transform.Rotate(rotateSpeed * 360 * Time.deltaTime, 0, 0, Space.Self); // Döndürmeye devam ediyoruz.
                 //}
             }
         }
@@ -153,6 +157,7 @@ public class PlayerController : MonoBehaviour
     {
         if (canStuck)
         {
+            SoundManager.Instance.PlayStuckSound();
             sliceController.sliceNum = 0;
             isSlicing = false;
             isStuck = true;
@@ -172,6 +177,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.TryGetComponent(out IHittable iHittable))
         {
             iHittable.Hit(this, false);
+            SoundManager.Instance.PlayHandleHitSound();
         }
     }
 }

@@ -61,43 +61,32 @@ public class SliceController : MonoBehaviour
         if (other.gameObject.TryGetComponent(out IHittable iHittable))
         {
             iHittable.Hit(playerController, true);
-        }
-
-        if (other.gameObject.TryGetComponent(out CuttableObject cuttableObject))
-        {
-            sliceNumControl();
-            if (counter >= sliceMats.Length)
+            if (other.gameObject.TryGetComponent(out CuttableObject cuttableObject))
             {
-                counter = 0;
-            }
+                sliceNumControl();
+                if (counter >= sliceMats.Length)
+                {
+                    counter = 0;
+                }
 
-            SlicedHull sliceObj = Slice(other.gameObject, sliceMats[counter]);
-            GameObject slicedObjTop = sliceObj.CreateUpperHull(other.gameObject, sliceMats[counter]);
-            //slicedObjTop.gameObject.layer = LayerMask.NameToLayer("Sliced");                   // Kesilen objenin layer'ýný sliced yaptýk böylece býçak ile etkileþime girmeyecek.
-            GameObject slicedObjDown = sliceObj.CreateLowerHull(other.gameObject, sliceMats[counter]);
-           // slicedObjDown.gameObject.layer = LayerMask.NameToLayer("Sliced");                  // Kesilen objenin layer'ýný sliced yaptýk böylece býçak ile etkileþime girmeyecek.
-            // slicedObjDown.GetComponent<Material>().color = matColors[Random.Range(0, matColors.Length)];
-            AddComponent(slicedObjTop,false);
-            AddComponent(slicedObjDown,false);
-            Destroy(other.gameObject);                                                         // ana dokunulan objeyi yok ettik çünkü bir üst birde alt objesini olluþturduk.
-            counter++;
-        }
+                SlicedHull sliceObj = Slice(other.gameObject, sliceMats[counter]);
+                GameObject slicedObjTop = sliceObj.CreateUpperHull(other.gameObject, sliceMats[counter]);
+                GameObject slicedObjDown = sliceObj.CreateLowerHull(other.gameObject, sliceMats[counter]);
+                if (cuttableObject.isCuttingEqual)
+                {
+                    AddComponent(slicedObjTop, false);
+                    AddComponent(slicedObjDown, false);
+                }
+                else
+                {
+                    AddComponent(slicedObjTop, false);
+                    AddComponent(slicedObjDown, true);
+                }
 
-        if (other.gameObject.CompareTag("canSlice"))
-        {
-            sliceNumControl();
-            if (counter >= sliceMats.Length)
-            {
-                counter = 0;
+                Destroy(other.gameObject);
+                counter++;
+                sliceNum++;
             }
-            SlicedHull sliceObj = Slice(other.gameObject, sliceMats[counter]);
-            GameObject slicedObjTop = sliceObj.CreateUpperHull(other.gameObject, sliceMats[counter]);
-            GameObject slicedObjDown = sliceObj.CreateLowerHull(other.gameObject, sliceMats[counter]);
-            AddComponent(slicedObjTop,false);
-            AddComponent(slicedObjDown,true);
-            Destroy(other.gameObject);                                                         // ana dokunulan objeyi yok ettik çünkü bir üst birde alt objesini olluþturduk.
-            counter++;
-        }
-        sliceNum++;
+        }   
     }
 } 

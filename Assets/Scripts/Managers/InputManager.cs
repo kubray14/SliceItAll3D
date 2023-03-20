@@ -18,8 +18,10 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            OnClick?.Invoke();
+            if (!GameManager.Instance.isGamePaused)
+            {
+                OnClick?.Invoke();
+            }
         }
     }
-
 }
