@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 100
+  controlID: 682
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -87,7 +87,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 101
+  controlID: 683
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 102
+  controlID: 684
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -506,9 +506,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -17.159065, y: 6.102631, z: 33.207012}
+    m_Target: {x: -1.4828895, y: 6.291045, z: -28.718811}
     speed: 2
-    m_Value: {x: -17.159065, y: 6.102631, z: 33.207012}
+    m_Value: {x: -1.4828895, y: 6.291045, z: -28.718811}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -555,9 +555,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.1541574, y: 0.7591824, z: -0.19450907, w: -0.6017131}
+    m_Target: {x: -0.12868528, y: 0.16196674, z: -0.021311488, w: -0.9781461}
     speed: 2
-    m_Value: {x: -0.15415627, y: 0.7591768, z: -0.19450764, w: -0.60170865}
+    m_Value: {x: -0.1286842, y: 0.16196537, z: -0.021311307, w: -0.9781378}
   m_Size:
     m_Target: 3.044213
     speed: 2
@@ -663,7 +663,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -672,15 +672,15 @@ MonoBehaviour:
     y: 695
     width: 1508
     height: 252
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 12}
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
+  m_ActualView: {fileID: 11}
   m_Panes:
   - {fileID: 11}
   - {fileID: 12}
   - {fileID: 13}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -723,21 +723,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Materials/SliceMats
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Materials/SliceMats
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\GitHub\Slice-It-All\SliceItAll3D\SliceItAll
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 157}
-    m_SelectedIDs: cc6e0000
-    m_LastClickedID: 28364
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: a86e0000
+    m_LastClickedID: 28328
     m_ExpandedIDs: 000000008e6e0000906e0000926e0000946e0000966e0000986e00009a6e00009c6e0000a26e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -766,7 +766,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008e6e0000906e0000926e0000946e0000966e0000986e00009a6e00009c6e0000
+    m_ExpandedIDs: 000000008e6e0000906e0000926e0000946e0000966e0000986e00009a6e00009c6e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -791,8 +791,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 18780000
-    m_LastClickedInstanceID: 30744
+    m_SelectedInstanceIDs: a86e0000
+    m_LastClickedInstanceID: 28328
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300003abe0000800c0100d66a0000
     m_RenameOverlay:
@@ -944,7 +944,7 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: 30744
+  m_LastInspectedObjectInstanceID: 28328
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
