@@ -21,7 +21,6 @@ public class Finish : MonoBehaviour, IHittable
             if (isSharpEdgeCollided)
             {
                 playerController.Stuck();
-                FindObjectOfType<MoneyManager>().moneyMultiplier = moneyMultiplier;
                 GameManager.Instance.FinishLevel(moneyMultiplier);
 
             }
