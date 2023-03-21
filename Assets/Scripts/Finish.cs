@@ -22,7 +22,7 @@ public class Finish : MonoBehaviour, IHittable
             {
                 playerController.Stuck();
                 FindObjectOfType<MoneyManager>().moneyMultiplier = moneyMultiplier;
-                playerController.FinishLevel();
+                GameManager.Instance.FinishLevel(moneyMultiplier);
 
             }
             else

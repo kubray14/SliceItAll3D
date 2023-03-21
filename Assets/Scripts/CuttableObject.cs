@@ -13,7 +13,7 @@ public class CuttableObject : MonoBehaviour, IHittable
 
     private void Start()
     {
-        myScoreCanvas = Instantiate(scoreCanvasPrefab, transform.position, Quaternion.identity, transform);
+        myScoreCanvas = Instantiate(scoreCanvasPrefab, transform.position, Quaternion.identity, transform); // Score canvas'imizi instantiate ediyoruz.
         myScoreCanvas.SetActive(false);
     }
 
@@ -32,7 +32,7 @@ public class CuttableObject : MonoBehaviour, IHittable
         }
     }
 
-    public void ShowScoreCanvas()
+    public void ShowScoreCanvas() // Kesilirken cagiriliyor. Canvas'i aciyor. Text'ini moneyvalue yapiyor. Parent'ini null yapiyor cünkü kesilirken bu obje destroy oluyor.
     {
         myScoreCanvas.SetActive(true);
         myScoreCanvas.gameObject.GetComponentInChildren<TMP_Text>().text = "+" + moneyValue.ToString();

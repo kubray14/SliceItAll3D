@@ -31,12 +31,12 @@ public class GameManager : MonoBehaviour
         isGamePaused = false;
     }
 
-    public void FinishLevel()
+    public void FinishLevel(int moneyMultiplier)
     {
         if (!isLevelFinished)
         {
             isLevelFinished = true;
-            FindObjectOfType<MoneyManager>().AddTotalMoney();
+            FindObjectOfType<MoneyManager>().AddTotalMoney(moneyMultiplier);
             Time.timeScale = 0;
         }
     }

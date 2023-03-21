@@ -8,7 +8,6 @@ public class MoneyManager : MonoBehaviour
     public event Action OnMoneyAdd;
     private const string PLAYER_PREFS_MONEY = "MoneyAmount";
     public static MoneyManager Instance;
-    public int moneyMultiplier;
     private int moneyTotal;
     private int money = 0;
 
@@ -27,7 +26,7 @@ public class MoneyManager : MonoBehaviour
         OnMoneyAdd?.Invoke();
     }
 
-    public void AddTotalMoney()
+    public void AddTotalMoney(int moneyMultiplier)
     {
         moneyTotal += money * moneyMultiplier;
         PlayerPrefs.SetInt(PLAYER_PREFS_MONEY, moneyTotal);
