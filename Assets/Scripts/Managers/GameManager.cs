@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public event Action OnLevelFinish;
     public static GameManager Instance;
     public bool isGameStarted = false;
     public bool isGamePaused = false;
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour
         {
             isLevelFinished = true;
             FindObjectOfType<MoneyManager>().AddTotalMoney(moneyMultiplier);
-            Time.timeScale = 0;
+            OnLevelFinish?.Invoke();
         }
     }
 

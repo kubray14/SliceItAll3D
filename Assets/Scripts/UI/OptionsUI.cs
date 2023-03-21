@@ -24,6 +24,7 @@ public class OptionsUI : MonoBehaviour
             GameManager.Instance.ResumeGame();
             Time.timeScale = 1.0f;
         });
+
     }
 
     private void Hide()

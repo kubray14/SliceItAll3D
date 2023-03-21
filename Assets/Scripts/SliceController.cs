@@ -82,7 +82,7 @@ public class SliceController : MonoBehaviour
                     AddComponent(slicedObjTop, false);
                     AddComponent(slicedObjDown, true);
                 }
-                cuttableObject.ShowScoreCanvas();
+                cuttableObject.ShowScoreCanvas(transform.position);
                 Destroy(other.gameObject);
                 counter++;
                 sliceNum++;

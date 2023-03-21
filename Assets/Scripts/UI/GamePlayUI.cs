@@ -6,22 +6,16 @@ using UnityEngine.UI;
 
 public class GamePlayUI : MonoBehaviour
 {
-    [SerializeField] private Button optionsButton;
-    [SerializeField] private GameObject optionsCanvas;
     [SerializeField] private TMP_Text moneyText;
+    [SerializeField] private Button restartButton;
 
-    private void Awake()
-    {
-        optionsButton.onClick.AddListener(() =>
-        {
-            Time.timeScale = 0;
-            GameManager.Instance.PauseGame();
-            optionsCanvas.SetActive(true);
-        });
-    }
 
     private void Start()
     {
+        restartButton.onClick.AddListener(() =>
+        {
+            LevelManager.Instance.RestartLevel();
+        });
         UpdateMoneyText();
         MoneyManager.Instance.OnMoneyAdd += MoneyManager_OnMoneyAdd;
     }

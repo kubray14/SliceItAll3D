@@ -32,8 +32,9 @@ public class CuttableObject : MonoBehaviour, IHittable
         }
     }
 
-    public void ShowScoreCanvas() // Kesilirken cagiriliyor. Canvas'i aciyor. Text'ini moneyvalue yapiyor. Parent'ini null yapiyor cünkü kesilirken bu obje destroy oluyor.
+    public void ShowScoreCanvas(Vector3 position) // Kesilirken cagiriliyor. Canvas'i aciyor. Text'ini moneyvalue yapiyor. Parent'ini null yapiyor cünkü kesilirken bu obje destroy oluyor.
     {
+        myScoreCanvas.transform.position = position;
         myScoreCanvas.SetActive(true);
         myScoreCanvas.gameObject.GetComponentInChildren<TMP_Text>().text = "+" + moneyValue.ToString();
         myScoreCanvas.transform.parent = null;
