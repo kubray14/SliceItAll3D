@@ -983,7 +983,7 @@ GameObject:
   - component: {fileID: 160739776}
   - component: {fileID: 160739775}
   - component: {fileID: 160739774}
-  - component: {fileID: 160739773}
+  - component: {fileID: 160739777}
   m_Layer: 0
   m_Name: Cube (13)
   m_TagString: Ground
@@ -1007,18 +1007,6 @@ Transform:
   m_Father: {fileID: 916908919}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &160739773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160739771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57b0ac27558d2304ead15e555cc86943, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &160739774
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1082,6 +1070,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160739771}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &160739777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160739771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80badbfd4d36afc46b9e391816629027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyMultiplierText: {fileID: 0}
+  moneyMultiplier: 3
 --- !u!1 &218166171 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5229200753844499617, guid: 18513baaa03372d47a8a5afd2b3b647c,
@@ -1819,8 +1821,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -21, y: -49}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -40.443, y: -49}
+  m_SizeDelta: {x: 144.617, y: 55.302}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &318908158
 MonoBehaviour:
@@ -1869,10 +1871,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36.24
+  m_fontSize: 53.15
   m_fontSizeBase: 36.24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
@@ -1905,7 +1907,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -4.124274, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4185,7 +4187,7 @@ GameObject:
   - component: {fileID: 757990946}
   - component: {fileID: 757990945}
   - component: {fileID: 757990944}
-  - component: {fileID: 757990943}
+  - component: {fileID: 757990947}
   m_Layer: 0
   m_Name: Cube (14)
   m_TagString: Ground
@@ -4209,18 +4211,6 @@ Transform:
   m_Father: {fileID: 916908919}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &757990943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 757990941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57b0ac27558d2304ead15e555cc86943, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &757990944
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4284,6 +4274,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 757990941}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &757990947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757990941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80badbfd4d36afc46b9e391816629027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyMultiplierText: {fileID: 0}
+  moneyMultiplier: 20
 --- !u!1001 &765806009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4424,7 +4428,7 @@ GameObject:
   - component: {fileID: 789328701}
   - component: {fileID: 789328700}
   - component: {fileID: 789328699}
-  - component: {fileID: 789328698}
+  - component: {fileID: 789328702}
   m_Layer: 0
   m_Name: Cube (12)
   m_TagString: Ground
@@ -4448,18 +4452,6 @@ Transform:
   m_Father: {fileID: 916908919}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &789328698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789328696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57b0ac27558d2304ead15e555cc86943, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &789328699
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4523,6 +4515,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789328696}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &789328702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789328696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80badbfd4d36afc46b9e391816629027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyMultiplierText: {fileID: 0}
+  moneyMultiplier: 10
 --- !u!1 &812510275
 GameObject:
   m_ObjectHideFlags: 0
@@ -5769,6 +5775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGameStarted: 0
   isGamePaused: 0
+  isLevelFinished: 0
 --- !u!1 &1007206799 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5229200753844499617, guid: 18513baaa03372d47a8a5afd2b3b647c,
@@ -8745,7 +8752,7 @@ GameObject:
   - component: {fileID: 1578721899}
   - component: {fileID: 1578721898}
   - component: {fileID: 1578721897}
-  - component: {fileID: 1578721896}
+  - component: {fileID: 1578721900}
   m_Layer: 0
   m_Name: Cube (16)
   m_TagString: Ground
@@ -8769,18 +8776,6 @@ Transform:
   m_Father: {fileID: 916908919}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1578721896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1578721894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57b0ac27558d2304ead15e555cc86943, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1578721897
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8844,6 +8839,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578721894}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1578721900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578721894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80badbfd4d36afc46b9e391816629027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyMultiplierText: {fileID: 0}
+  moneyMultiplier: 5
 --- !u!1 &1581758649 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5229200753844499617, guid: 18513baaa03372d47a8a5afd2b3b647c,
@@ -9410,7 +9419,7 @@ GameObject:
   - component: {fileID: 1791544762}
   - component: {fileID: 1791544761}
   - component: {fileID: 1791544760}
-  - component: {fileID: 1791544759}
+  - component: {fileID: 1791544763}
   m_Layer: 0
   m_Name: Cube (15)
   m_TagString: Ground
@@ -9434,18 +9443,6 @@ Transform:
   m_Father: {fileID: 916908919}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1791544759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1791544757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57b0ac27558d2304ead15e555cc86943, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1791544760
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9509,6 +9506,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791544757}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1791544763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791544757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80badbfd4d36afc46b9e391816629027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyMultiplierText: {fileID: 0}
+  moneyMultiplier: 50
 --- !u!1 &1792028191 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5229200753844499617, guid: 18513baaa03372d47a8a5afd2b3b647c,
@@ -9718,6 +9729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1179202add473948bd0f9cc287fb57e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyMultiplier: 0
 --- !u!1 &1872002880
 GameObject:
   m_ObjectHideFlags: 0

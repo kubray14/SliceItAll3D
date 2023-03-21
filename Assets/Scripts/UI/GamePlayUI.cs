@@ -33,6 +33,6 @@ public class GamePlayUI : MonoBehaviour
 
     private void UpdateMoneyText()
     {
-        moneyText.text = MoneyManager.Instance.GetMoney() + "$";
+        moneyText.text = MoneyManager.Instance.GetTotalMoney() + "$";
     }
 }

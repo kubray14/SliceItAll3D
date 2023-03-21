@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public bool isGameStarted = false;
     public bool isGamePaused = false;
+    public bool isLevelFinished = false;
 
     private void Awake()
     {
@@ -28,6 +29,16 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         isGamePaused = false;
+    }
+
+    public void FinishLevel()
+    {
+        if (!isLevelFinished)
+        {
+            isLevelFinished = true;
+            FindObjectOfType<MoneyManager>().AddTotalMoney();
+            Time.timeScale = 0;
+        }
     }
 
 }

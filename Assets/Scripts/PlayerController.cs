@@ -172,6 +172,11 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, 0);
     }
 
+    public void FinishLevel()
+    {
+        GameManager.Instance.FinishLevel();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent(out IHittable iHittable))
