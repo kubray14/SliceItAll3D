@@ -10,8 +10,11 @@ public class Finish : MonoBehaviour, IHittable
 
     private void Awake()
     {
-        moneyMultiplierText = GetComponentInChildren<TMP_Text>();
-        moneyMultiplierText.text = moneyMultiplier.ToString() + "X";
+        if (moneyMultiplierText != null) // 2. Levelde score carpani olmayacaksa diye.
+        {
+            moneyMultiplierText = GetComponentInChildren<TMP_Text>();
+            moneyMultiplierText.text = moneyMultiplier.ToString() + "X";
+        }
     }
 
     public void Hit(PlayerController playerController, bool isSharpEdgeCollided)
