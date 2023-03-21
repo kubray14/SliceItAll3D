@@ -21,19 +21,35 @@ public class MenuUI : MonoBehaviour
 
         homeMenuButton.onClick.AddListener(() =>
         {
-            CloseKnifeMenu();
+            OpenHomeMenu();
+        });
+
+        trailMenuButton.onClick.AddListener(() =>
+        {
+            OpenTrailMenu();
         });
     }
 
     private void OpenKnifeMenu()
     {
-        animator.ResetTrigger("CloseKnifeMenu");
-        animator.SetTrigger("OpenKnifeMenu");
+        animator.SetBool("Close",false);
+        animator.SetBool("OpenTrailMenu", false);
+        animator.SetBool("OpenKnifeMenu",true);
     }
 
-    private void CloseKnifeMenu()
+    private void OpenHomeMenu()
     {
-        animator.ResetTrigger("OpenKnifeMenu");
-        animator.SetTrigger("CloseKnifeMenu");
+        animator.SetBool("OpenTrailMenu",false);
+        animator.SetBool("OpenKnifeMenu",false);
+        animator.SetBool("Close", true);
     }
+
+    private void OpenTrailMenu()
+    {
+        animator.SetBool("Close",false);
+        animator.SetBool("OpenKnifeMenu", false);
+        animator.SetBool("OpenTrailMenu", true);
+    }
+
+  
 }

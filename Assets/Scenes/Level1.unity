@@ -5637,18 +5637,6 @@ Transform:
   m_Father: {fileID: 294896976}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &912550878 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 912550878, guid: a0cc7450cff2c2f4b959aae691333bd0,
-    type: 3}
-  m_PrefabInstance: {fileID: 5283767436564083771}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &916908918
 GameObject:
   m_ObjectHideFlags: 0
@@ -9415,18 +9403,6 @@ MonoBehaviour:
   isCuttingEqual: 0
   scoreCanvasPrefab: {fileID: 1486138200633003630, guid: b9270805ffec369478d31051709941a6,
     type: 3}
---- !u!114 &1613289250 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1613289250, guid: a0cc7450cff2c2f4b959aae691333bd0,
-    type: 3}
-  m_PrefabInstance: {fileID: 5283767436564083771}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1651921304
 GameObject:
   m_ObjectHideFlags: 0
@@ -9458,39 +9434,6 @@ Transform:
   m_Father: {fileID: 661313029}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1652710552 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1652710552, guid: a0cc7450cff2c2f4b959aae691333bd0,
-    type: 3}
-  m_PrefabInstance: {fileID: 5283767436564083771}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1652710555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652710552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b92e72a471180c64580c5e3dfa21602e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knifeMenuButton: {fileID: 1613289250}
-  homeMenuButton: {fileID: 912550878}
-  trailMenuButton: {fileID: 1671683680}
---- !u!114 &1671683680 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1671683680, guid: a0cc7450cff2c2f4b959aae691333bd0,
-    type: 3}
-  m_PrefabInstance: {fileID: 5283767436564083771}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1688447713
 GameObject:
   m_ObjectHideFlags: 0
@@ -12426,42 +12369,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 912550877, guid: a0cc7450cff2c2f4b959aae691333bd0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 912550877, guid: a0cc7450cff2c2f4b959aae691333bd0, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613289249, guid: a0cc7450cff2c2f4b959aae691333bd0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613289249, guid: a0cc7450cff2c2f4b959aae691333bd0, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613289249, guid: a0cc7450cff2c2f4b959aae691333bd0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1652710552, guid: a0cc7450cff2c2f4b959aae691333bd0, type: 3}
-      propertyPath: m_Name
-      value: MenuUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 1671683679, guid: a0cc7450cff2c2f4b959aae691333bd0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1671683679, guid: a0cc7450cff2c2f4b959aae691333bd0, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1671683679, guid: a0cc7450cff2c2f4b959aae691333bd0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5283767437808342089, guid: a0cc7450cff2c2f4b959aae691333bd0,
         type: 3}
       propertyPath: m_Pivot.x
