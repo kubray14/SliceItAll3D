@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
         Jump();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         CheckFalling();
         RotateControl();
@@ -76,6 +76,10 @@ public class PlayerController : MonoBehaviour
         if (rb.velocity.y <= 0)
         {
             isFalling = true;
+        }
+        else
+        {
+            DOTween.KillAll(); // LerpRotateSpeed metodu çalýþýyorsa kapatýyoruz. 
         }
     }
 
