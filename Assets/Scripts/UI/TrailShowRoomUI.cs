@@ -32,11 +32,12 @@ public class TrailShowRoomUI : MonoBehaviour
         }
     }
 
+
     private void SelectTrail(int trailNumber)
     {
         if (trailNumber <= trails.Count)
         {
-            playerController.SelectTrail(trails[trailNumber]);
+            playerController.SelectTrail(trailNumber);
             PlayerPrefs.SetInt(PLAYER_PREFS_TRAIL_NUMBER, trailNumber);
             PlayerPrefs.Save();
         }

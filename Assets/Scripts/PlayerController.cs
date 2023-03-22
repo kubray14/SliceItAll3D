@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool canStuck;
     [SerializeField] private bool isFalling;
     [SerializeField] private Vector3 pushBackForce = new Vector3(0, 3, -3);
+    [SerializeField] private List<GameObject> trails;
     [SerializeField] private Transform trailTransform;
     [SerializeField] private GameObject myTrail;
 
@@ -172,15 +173,16 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, 0);
     }
 
-    public void SelectTrail(GameObject trailPrefab)
+    public void SelectTrail(int trailIndex)
     {
         if (trailTransform != null)
         {
             if (myTrail != null)
             {
-                Destroy(myTrail);
+                myTrail.gameObject.SetActive(false);
             }
-            myTrail = Instantiate(trailPrefab, trailTransform.position, transform.rotation, trailTransform);
+            myTrail = trails[trailIndex];
+            myTrail.gameObject.SetActive(true);
         }
     }
 
