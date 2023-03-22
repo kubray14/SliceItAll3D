@@ -14,7 +14,7 @@ public class LevelWinUI : MonoBehaviour
             LevelManager.Instance.NextLevel();
         });
 
-        GameManager.Instance.OnLevelFinish += GameManager_OnLevelFinish;
+        GameManager.Instance.OnLevelSuccess += GameManager_OnLevelFinish;
 
         Hide();
     }

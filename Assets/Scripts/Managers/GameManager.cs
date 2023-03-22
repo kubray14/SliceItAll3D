@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public event Action OnLevelFinish;
+    public event Action OnLevelSuccess;
+    public event Action OnPlayerDeath;
     public event Action OnLevelStart;
     public static GameManager Instance;
     public bool isGameStarted = false;
@@ -40,8 +41,23 @@ public class GameManager : MonoBehaviour
         {
             isLevelFinished = true;
             FindObjectOfType<MoneyManager>().AddTotalMoney(moneyMultiplier);
-            OnLevelFinish?.Invoke();
+            OnLevelSuccess?.Invoke();
         }
+    }
+
+    public void ContinueLevel()
+    {
+        print("Level Continued");
+    }
+
+    public void PlayerDeath()
+    {
+        OnPlayerDeath?.Invoke();
+    }
+
+    public void LevelFail()
+    {
+        LevelManager.Instance.RestartLevel();
     }
 
 }
