@@ -35,6 +35,6 @@ public class OptionsUI : MonoBehaviour
     private void ChangeSoundVolume()
     {
         SoundManager.Instance.ChangeSoundVolume();
-        soundVolumeText.text = "Sound Volume : " + Mathf.CeilToInt(SoundManager.Instance.GetVolume());
+        soundVolumeText.text = "Sound Volume : " + (int)SoundManager.Instance.GetVolume();
     }
 }
