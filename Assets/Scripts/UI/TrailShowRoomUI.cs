@@ -41,6 +41,4 @@ public class TrailShowRoomUI : MonoBehaviour
             PlayerPrefs.Save();
         }
     }
-
-
 }

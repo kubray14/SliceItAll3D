@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform trailTransform;
     [SerializeField] private GameObject myTrail;
 
+    private bool canPushBack = true;
     private bool isSpeedIncreasing;
     private bool isSpeedDecreasing;
 
@@ -147,13 +148,6 @@ public class PlayerController : MonoBehaviour
         yield break;
     }
 
-    public void PushBack() // Sapýn temas halinde geri tepmesi.
-    {
-        isSlicing = false;
-        rb.velocity = Vector3.zero;
-        rb.AddForce(pushBackForce, ForceMode.Impulse);
-    }
-
     private void LerpRotateSpeed(float newSpeed, float time) // rotateSpeed'i newSpeed'e time sürede getiriyor.
     {
         DOTween.To(() => rotateSpeed, (newSpeed) => rotateSpeed = newSpeed, newSpeed, time);
@@ -188,6 +182,24 @@ public class PlayerController : MonoBehaviour
             }
             myTrail = Instantiate(trailPrefab, trailTransform.position, transform.rotation, trailTransform);
         }
+    }
+
+    public void PushBack() // Sapýn temas halinde geri tepmesi.
+    {
+        if (canPushBack)
+        {
+            isSlicing = false;
+            rb.velocity = Vector3.zero;
+            rb.AddForce(pushBackForce, ForceMode.Impulse);
+            StartCoroutine(OpenCanPushBack_Coroutine(0.1f));
+        }
+    }
+
+    private IEnumerator OpenCanPushBack_Coroutine(float time)
+    {
+        canPushBack = false;
+        yield return new WaitForSecondsRealtime(time);
+        canPushBack = true;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -30,6 +30,16 @@ public class MenuUI : MonoBehaviour
         });
     }
 
+    private void Start()
+    {
+        GameManager.Instance.OnLevelStart += GameManager_OnLevelStart;
+    }
+
+    private void GameManager_OnLevelStart()
+    {
+        Hide();
+    }
+
     private void OpenKnifeMenu()
     {
         animator.SetBool("Close",false);
@@ -49,6 +59,11 @@ public class MenuUI : MonoBehaviour
         animator.SetBool("Close",false);
         animator.SetBool("OpenKnifeMenu", false);
         animator.SetBool("OpenTrailMenu", true);
+    }
+
+    private void Hide()
+    {
+        gameObject.SetActive(false);
     }
 
   

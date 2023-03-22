@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public event Action OnLevelFinish;
+    public event Action OnLevelStart;
     public static GameManager Instance;
     public bool isGameStarted = false;
     public bool isGamePaused = false;
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     {
         FindObjectOfType<PlayerController>().Jump();
         isGameStarted = true;
+        OnLevelStart?.Invoke();
     }
 
     public void PauseGame()
