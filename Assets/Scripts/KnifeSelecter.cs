@@ -8,7 +8,7 @@ public class KnifeSelecter : MonoBehaviour
     private GameObject myKnife;
     private CameraController myCameraController;
 
-    private void Start()
+    private void Awake()
     {
         myCameraController = FindObjectOfType<CameraController>();
     }
@@ -21,7 +21,7 @@ public class KnifeSelecter : MonoBehaviour
         }
         myKnife = knifeList[knifeIndex];
         myKnife.gameObject.SetActive(true);
-        myCameraController.SetPlayer(myKnife.transform);
         GameManager.Instance.SetActiveKnife(myKnife.GetComponent<PlayerController>());
+        myCameraController.SetPlayer(GameManager.Instance.GetActiveKnife());
     }
 }

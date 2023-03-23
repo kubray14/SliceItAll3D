@@ -19,7 +19,7 @@ public class CameraController : MonoBehaviour
     {
         if (player != null)
         {
-            FollowPlayer();
+            SmoothFollowPlayer();
         }
     }
 
@@ -33,8 +33,8 @@ public class CameraController : MonoBehaviour
         transform.position = player.position + offset;
     }
 
-    public void SetPlayer(Transform player)
+    public void SetPlayer(Transform newPlayer)
     {
-        this.player = player;   
+        player = newPlayer;   
     }
 }

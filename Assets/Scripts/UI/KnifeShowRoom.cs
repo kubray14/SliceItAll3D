@@ -7,7 +7,6 @@ public class KnifeShowRoom : MonoBehaviour
 {
     private const string PLAYER_PREFS_KNIFE_NUMBER = "KnifeNumber";
     [SerializeField] private List<Button> knifeButtons;
-    [SerializeField] private List<GameObject> knifes;
     private KnifeSelecter knifeSelecter;
 
     private int knifeNumber;
@@ -35,11 +34,9 @@ public class KnifeShowRoom : MonoBehaviour
 
     private void SelectKnife(int knifeIndex)
     {
-        if (knifeIndex <= knifes.Count)
-        {
+
             knifeSelecter.SelectKnife(knifeIndex);
             PlayerPrefs.SetInt(PLAYER_PREFS_KNIFE_NUMBER, knifeIndex);
             PlayerPrefs.Save();
-        }
     }
 }
