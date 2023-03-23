@@ -7,15 +7,8 @@ public class TrailShowRoomUI : MonoBehaviour
 {
     private const string PLAYER_PREFS_TRAIL_NUMBER = "TrailNumber";
     [SerializeField] private List<Button> trailButtons;
-    [SerializeField] private List<GameObject> trails;
-    private PlayerController playerController;
-
     private int trailNumber;
 
-    private void Awake()
-    {
-        playerController = FindObjectOfType<PlayerController>();
-    }
 
     private void Start()
     {
@@ -32,14 +25,32 @@ public class TrailShowRoomUI : MonoBehaviour
         }
     }
 
-
     private void SelectTrail(int trailNumber)
     {
-        if (trailNumber <= trails.Count)
+        if (GameManager.Instance.activePlayerController != null)
         {
-            playerController.SelectTrail(trailNumber);
-            PlayerPrefs.SetInt(PLAYER_PREFS_TRAIL_NUMBER, trailNumber);
-            PlayerPrefs.Save();
+            List<GameObject> trails = GameManager.Instance.activePlayerController.trails;
+            if (trailNumber <= trails.Count)
+            {
+                GameManager.Instance.activePlayerController.SelectTrail(trailNumber);
+                PlayerPrefs.SetInt(PLAYER_PREFS_TRAIL_NUMBER, trailNumber);
+                PlayerPrefs.Save();
+            }
+        }
+    }
+
+    public void SelectDefaultTrail()
+    {
+        if (GameManager.Instance.activePlayerController != null)
+        {
+            List<GameObject> trails = GameManager.Instance.activePlayerController.trails;
+            trailNumber = PlayerPrefs.GetInt(PLAYER_PREFS_TRAIL_NUMBER, 0);
+            if (trailNumber <= trails.Count)
+            {
+                GameManager.Instance.activePlayerController.SelectTrail(trailNumber);
+                PlayerPrefs.SetInt(PLAYER_PREFS_TRAIL_NUMBER, trailNumber);
+                PlayerPrefs.Save();
+            }
         }
     }
 }

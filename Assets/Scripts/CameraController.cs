@@ -32,4 +32,9 @@ public class CameraController : MonoBehaviour
     {
         transform.position = player.position + offset;
     }
+
+    public void SetPlayer(Transform player)
+    {
+        this.player = player;   
+    }
 }

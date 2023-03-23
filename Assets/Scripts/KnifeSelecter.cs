@@ -6,6 +6,12 @@ public class KnifeSelecter : MonoBehaviour
 {
     [SerializeField] private List<GameObject> knifeList;
     private GameObject myKnife;
+    private CameraController myCameraController;
+
+    private void Start()
+    {
+        myCameraController = FindObjectOfType<CameraController>();
+    }
 
     public void SelectKnife(int knifeIndex)
     {
@@ -15,7 +21,7 @@ public class KnifeSelecter : MonoBehaviour
         }
         myKnife = knifeList[knifeIndex];
         myKnife.gameObject.SetActive(true);
+        myCameraController.SetPlayer(myKnife.transform);
+        GameManager.Instance.SetActiveKnife(myKnife.GetComponent<PlayerController>());
     }
-
-
 }

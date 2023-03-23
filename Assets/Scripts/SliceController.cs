@@ -14,7 +14,7 @@ public class SliceController : MonoBehaviour
     private PlayerController playerController;
 
 
-    private void Start()
+    private void OnEnable()
     {
         playerController = GetComponentInParent<PlayerController>();
     }

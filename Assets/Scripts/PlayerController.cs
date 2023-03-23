@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool canStuck;
     [SerializeField] private bool isFalling;
     [SerializeField] private Vector3 pushBackForce = new Vector3(0, 3, -3);
-    [SerializeField] private List<GameObject> trails;
+    public List<GameObject> trails;
     [SerializeField] private Transform trailTransform;
     [SerializeField] private GameObject myTrail;
 
@@ -37,7 +37,22 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.OnLevelStart += GameManager_OnLevelStart;
         InputManager.Instance.OnClick += InputManager_OnClick; // InputManagerdaki OnClick eventine subscribe olduk.
+    }
+
+    //private void OnDisable()
+    //{
+    //    GameManager.Instance.OnLevelStart -= GameManager_OnLevelStart;
+    //}
+
+    private void GameManager_OnLevelStart()
+    {
+        transform.parent = null; // KnifeSelecter'in parentligindan cikiyoruz.
+        if (!gameObject.activeInHierarchy)
+        {
+            InputManager.Instance.OnClick -= InputManager_OnClick; // InputManagerdaki OnClick eventine subscribe olduk.
+        }
     }
 
     private void OnDestroy()
