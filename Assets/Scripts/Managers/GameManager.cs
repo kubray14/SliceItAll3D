@@ -68,4 +68,9 @@ public class GameManager : MonoBehaviour
         activePlayerController = playerController;
     }
 
+    public Transform GetActiveKnife()
+    {
+        return activePlayerController.transform;
+    }
+
 }
