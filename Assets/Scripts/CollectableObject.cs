@@ -4,26 +4,22 @@ using UnityEngine;
 
 public class CollectableObject : MonoBehaviour, IHittable
 {
-    private bool canHit = true;
-
     public void Hit(PlayerController playerController, bool isSharpEdgeCollided)
     {
-        if (canHit)
+        if (isSharpEdgeCollided)
         {
-            if (isSharpEdgeCollided)
-            {
-                StartCoroutine(Collect_Coroutine());
-                canHit = false;
-            }
-            else
-            {
-                playerController.PushBack();
-            }
+            StartCoroutine(Collect_Coroutine());
         }
+        else
+        {
+            playerController.PushBack();
+        }
+
     }
 
     private IEnumerator Collect_Coroutine()
     {
+        this.enabled = false;
         float timeMax = 1f;
         float time = 0;
         Vector3 startScale = transform.localScale;
@@ -31,7 +27,6 @@ public class CollectableObject : MonoBehaviour, IHittable
         {
             if (time >= timeMax)
             {
-                GameManager.Instance.CollectKey();
                 gameObject.SetActive(false);
                 yield break;
             }
