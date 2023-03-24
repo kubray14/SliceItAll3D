@@ -11985,7 +11985,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 7a84f39 (KeyCollect and Key_UI)
     - target: {fileID: 5283767436564083773, guid: a0cc7450cff2c2f4b959aae691333bd0,
         type: 3}
       propertyPath: knifes.Array.size
@@ -12016,6 +12019,9 @@ PrefabInstance:
       propertyPath: knifes.Array.data[4]
       value: 
       objectReference: {fileID: 1386494386}
+<<<<<<< HEAD
+>>>>>>> parent of 7a84f39 (KeyCollect and Key_UI)
+=======
 >>>>>>> parent of 7a84f39 (KeyCollect and Key_UI)
     - target: {fileID: 5283767437808342089, guid: a0cc7450cff2c2f4b959aae691333bd0,
         type: 3}
