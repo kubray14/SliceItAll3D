@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public event Action OnPlayerDeath;
     public event Action OnPlayerRespawn;
     public event Action OnLevelStart;
+    public event Action OnCollectKey;
+    public int collectedKeyCount = 0;
     public static GameManager Instance;
     public PlayerController activePlayerController;
     public bool canPlayerDie = true;
@@ -87,6 +89,12 @@ public class GameManager : MonoBehaviour
     public Transform GetActiveKnife()
     {
         return activePlayerController.transform;
+    }
+
+    public void CollectKey()
+    {
+        collectedKeyCount++;
+        OnCollectKey?.Invoke();
     }
 
 }
