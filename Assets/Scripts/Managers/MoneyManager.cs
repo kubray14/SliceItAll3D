@@ -43,4 +43,5 @@ public class MoneyManager : MonoBehaviour
     {
         return money;
     }
+
 }

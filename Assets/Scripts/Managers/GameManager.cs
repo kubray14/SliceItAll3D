@@ -7,12 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public event Action OnLevelSuccess;
     public event Action OnPlayerDeath;
-    public event Action OnPlayerRespawn;
     public event Action OnLevelStart;
     public static GameManager Instance;
     public PlayerController activePlayerController;
-    public bool canPlayerDie = true;
-    public bool isPlayerDead = false;
     public bool isGameStarted = false;
     public bool isGamePaused = false;
     public bool isLevelFinished = false;
@@ -53,25 +50,12 @@ public class GameManager : MonoBehaviour
 
     public void ContinueLevel()
     {
-        isPlayerDead = false;
-        OnPlayerRespawn?.Invoke();
-        StartCoroutine(DeathProtect_Coroutine());
-        FindObjectOfType<PlayerController>().Jump();
+        print("Level Continued");
     }
 
     public void PlayerDeath()
     {
-        if (canPlayerDie)
-        {
-            isPlayerDead = true;
-            canPlayerDie = false;
-            OnPlayerDeath?.Invoke();
-        }
-    }
-    private IEnumerator DeathProtect_Coroutine()
-    {
-        yield return new WaitForSecondsRealtime(1.5f);
-        canPlayerDie = true;
+        OnPlayerDeath?.Invoke();
     }
 
     public void LevelFail()
