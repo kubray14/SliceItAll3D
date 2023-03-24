@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool isStuck;
     [SerializeField] private bool canStuck;
     [SerializeField] private bool isFalling;
+    private bool canDie = true;
     [SerializeField] private Vector3 pushBackForce = new Vector3(0, 3, -3);
     public List<GameObject> trails;
     [SerializeField] private Transform trailTransform;
@@ -41,10 +42,6 @@ public class PlayerController : MonoBehaviour
         InputManager.Instance.OnClick += InputManager_OnClick; // InputManagerdaki OnClick eventine subscribe olduk.
     }
 
-    //private void OnDisable()
-    //{
-    //    GameManager.Instance.OnLevelStart -= GameManager_OnLevelStart;
-    //}
 
     private void GameManager_OnLevelStart()
     {
@@ -52,7 +49,13 @@ public class PlayerController : MonoBehaviour
         if (!gameObject.activeInHierarchy)
         {
             InputManager.Instance.OnClick -= InputManager_OnClick; // InputManagerdaki OnClick eventine subscribe olduk.
+            GameManager.Instance.OnPlayerRespawn += GameManager_OnPlayerRespawn;
         }
+    }
+
+    private void GameManager_OnPlayerRespawn()
+    {
+        throw new System.NotImplementedException();
     }
 
     private void OnDestroy()
@@ -73,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        if (!GameManager.Instance.isGamePaused)
+        if (!GameManager.Instance.isGamePaused && !GameManager.Instance.isPlayerDead)
         {
             sliceController.sliceNum = 0;
             rb.isKinematic = false;

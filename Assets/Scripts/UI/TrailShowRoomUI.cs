@@ -9,7 +9,6 @@ public class TrailShowRoomUI : MonoBehaviour
     [SerializeField] private List<Button> trailButtons;
     private int trailNumber;
 
-
     private void Start()
     {
         trailNumber = PlayerPrefs.GetInt(PLAYER_PREFS_TRAIL_NUMBER, 0);
