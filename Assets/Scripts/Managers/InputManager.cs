@@ -18,7 +18,7 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (!GameManager.Instance.isGamePaused && GameManager.Instance.isGameStarted)
+            if (!GameManager.Instance.isGamePaused && GameManager.Instance.isGameStarted && !GameManager.Instance.isPlayerDead && !GameManager.Instance.isLevelFinished)
             {
                 OnClick?.Invoke();
             }

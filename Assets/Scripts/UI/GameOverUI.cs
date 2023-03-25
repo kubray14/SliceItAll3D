@@ -13,7 +13,7 @@ public class GameOverUI : MonoBehaviour
     {
         continueButton.onClick.AddListener(() =>
         {
-            GameManager.Instance.ContinueLevel();
+            LevelManager.Instance.RestartLevel();
             Hide();
         });
 
@@ -24,29 +24,10 @@ public class GameOverUI : MonoBehaviour
     private void Show()
     {
         gameObject.SetActive(true);
-        StartCoroutine(StartCountdown_Coroutine());
     }
 
     private void Hide()
     {
         gameObject?.SetActive(false);
-    }
-
-    private IEnumerator StartCountdown_Coroutine()
-    {
-        float countDownTimerMax = 3.0f;
-        float countDownTimer = countDownTimerMax;
-        while (true)
-        {
-            yield return null;
-            countDownTimer -= Time.deltaTime;
-
-            if (countDownTimer <= 0)
-            {
-                GameManager.Instance.LevelFail();
-            }
-            continueImage.fillAmount = countDownTimer / countDownTimerMax;
-
-        }
     }
 }

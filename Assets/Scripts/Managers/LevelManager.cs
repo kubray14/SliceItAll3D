@@ -20,6 +20,10 @@ public class LevelManager : MonoBehaviour
         {
             SceneManager.LoadScene(sceneIndex + 1);
         }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     public void RestartLevel()

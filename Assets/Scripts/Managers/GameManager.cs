@@ -8,8 +8,10 @@ public class GameManager : MonoBehaviour
     public event Action OnLevelSuccess;
     public event Action OnPlayerDeath;
     public event Action OnLevelStart;
+    public event Action OnCollectKey;
     public static GameManager Instance;
     public PlayerController activePlayerController;
+    public bool isPlayerDead = false;
     public bool isGameStarted = false;
     public bool isGamePaused = false;
     public bool isLevelFinished = false;
@@ -48,13 +50,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ContinueLevel()
-    {
-        print("Level Continued");
-    }
-
     public void PlayerDeath()
     {
+        isPlayerDead = true;
         OnPlayerDeath?.Invoke();
     }
 
@@ -71,6 +69,11 @@ public class GameManager : MonoBehaviour
     public Transform GetActiveKnife()
     {
         return activePlayerController.transform;
+    }
+
+    public void CollectKey()
+    {
+        OnCollectKey?.Invoke();
     }
 
 }

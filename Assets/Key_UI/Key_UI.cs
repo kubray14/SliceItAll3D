@@ -6,6 +6,7 @@ public class Key_UI : MonoBehaviour
 {
     private void Start()
     {
+        GameManager.Instance.OnCollectKey += () => Show();
         Hide();
     }
 
