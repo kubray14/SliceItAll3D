@@ -2737,6 +2737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   continueButton: {fileID: 5283767437820886636}
+  moneyText: {fileID: 5283767437136964052}
 --- !u!1 &5283767436378321266
 GameObject:
   m_ObjectHideFlags: 0

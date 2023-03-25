@@ -10,14 +10,9 @@ public class CameraController : MonoBehaviour
 
     private Vector3 offset;
 
-    private void Start()
-    {
-        offset = transform.position - player.position;
-    }
-
     private void LateUpdate()
     {
-        if (player != null)
+        if (player != null && GameManager.Instance.isGameStarted)
         {
             SmoothFollowPlayer();
         }
@@ -35,6 +30,7 @@ public class CameraController : MonoBehaviour
 
     public void SetPlayer(Transform newPlayer)
     {
-        player = newPlayer;   
+        player = newPlayer;
+        offset = transform.position - player.position;
     }
 }

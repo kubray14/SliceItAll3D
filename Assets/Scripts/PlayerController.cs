@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform trailTransform;
     [SerializeField] private GameObject myTrail;
 
-    private bool canPushBack = true;
     private bool isSpeedIncreasing;
     private bool isSpeedDecreasing;
 
@@ -203,21 +202,11 @@ public class PlayerController : MonoBehaviour
 
     public void PushBack() // Sapýn temas halinde geri tepmesi.
     {
-        if (canPushBack)
-        {
-            isSlicing = false;
-            rb.velocity = Vector3.zero;
-            rb.AddForce(pushBackForce, ForceMode.Impulse);
-            StartCoroutine(OpenCanPushBack_Coroutine(0.1f));
-        }
+        isSlicing = false;
+        rb.velocity = Vector3.zero;
+        rb.AddForce(pushBackForce, ForceMode.Impulse);
     }
 
-    private IEnumerator OpenCanPushBack_Coroutine(float time)
-    {
-        canPushBack = false;
-        yield return new WaitForSecondsRealtime(time);
-        canPushBack = true;
-    }
 
     private void OnTriggerEnter(Collider other)
     {

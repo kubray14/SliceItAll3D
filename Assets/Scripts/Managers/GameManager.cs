@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public event Action OnCollectKey;
     public static GameManager Instance;
     public PlayerController activePlayerController;
+    private CameraController cameraController;
     public bool isPlayerDead = false;
     public bool isGameStarted = false;
     public bool isGamePaused = false;
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        cameraController = FindObjectOfType<CameraController>();
     }
 
     public void StartGame()

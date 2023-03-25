@@ -10,6 +10,7 @@ public class MoneyManager : MonoBehaviour
     public static MoneyManager Instance;
     private int moneyTotal;
     private int money = 0;
+    private int moneyMultiplied;
 
 
     private void Awake()
@@ -29,6 +30,7 @@ public class MoneyManager : MonoBehaviour
     public void AddTotalMoney(int moneyMultiplier)
     {
         moneyTotal += money * moneyMultiplier;
+        moneyMultiplied = money * moneyMultiplier;
         PlayerPrefs.SetInt(PLAYER_PREFS_MONEY, moneyTotal);
         PlayerPrefs.Save();
         OnMoneyAdd?.Invoke();
@@ -42,6 +44,11 @@ public class MoneyManager : MonoBehaviour
     public int GetMoney()
     {
         return money;
+    }
+
+    public int GetEarnedTotalMoney()
+    {
+        return moneyMultiplied;
     }
 
 }
