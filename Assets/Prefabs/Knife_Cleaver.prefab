@@ -6529,9 +6529,9 @@ GameObject:
   - component: {fileID: 7097721768458642929}
   - component: {fileID: 7097721768458642932}
   - component: {fileID: 7097721768458642933}
+  - component: {fileID: 7097721768458642928}
   - component: {fileID: 7097721768458642934}
   - component: {fileID: 7097721768458642935}
-  - component: {fileID: 7097721768458642928}
   m_Layer: 0
   m_Name: Knife_Cleaver
   m_TagString: Untagged
@@ -6606,6 +6606,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7097721768458642928
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7097721768458642930}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4724490089129887149, guid: aee144e4563c1334cb45cb96736399e2, type: 3}
 --- !u!54 &7097721768458642934
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6652,20 +6666,6 @@ MonoBehaviour:
   - {fileID: 7097721768296758515}
   trailTransform: {fileID: 7097721769200385466}
   myTrail: {fileID: 0}
---- !u!64 &7097721768458642928
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7097721768458642930}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4724490089129887149, guid: aee144e4563c1334cb45cb96736399e2, type: 3}
 --- !u!1 &7097721768746130941
 GameObject:
   m_ObjectHideFlags: 0

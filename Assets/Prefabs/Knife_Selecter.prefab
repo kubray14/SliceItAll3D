@@ -175,6 +175,11 @@ PrefabInstance:
       propertyPath: trails.Array.data[2]
       value: 
       objectReference: {fileID: 3217262852856984857}
+    - target: {fileID: 6111482192701528244, guid: 2dd011ac6068fb4479b44aca3c49d8e0,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dd011ac6068fb4479b44aca3c49d8e0, type: 3}
 --- !u!1 &1629382733558790972 stripped
@@ -268,6 +273,11 @@ PrefabInstance:
       propertyPath: m_Drag
       value: 0.17
       objectReference: {fileID: 0}
+    - target: {fileID: 1725331225414070623, guid: 75476c150f9afdb4f85a29ed62658db6,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7380373204483397524, guid: 75476c150f9afdb4f85a29ed62658db6,
         type: 3}
       propertyPath: sliceMats.Array.data[0]
@@ -329,6 +339,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3699351641901355205}
     m_Modifications:
+    - target: {fileID: 7097721768458642928, guid: 8cf6ff81bbc3fb440befe90ef2002f22,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7097721768458642929, guid: 8cf6ff81bbc3fb440befe90ef2002f22,
         type: 3}
       propertyPath: m_RootOrder
@@ -494,6 +509,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Drag
       value: 0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613233822383693850, guid: 4353ea390348c6f4aadffab29aaa8fb9,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4613233822383693927, guid: 4353ea390348c6f4aadffab29aaa8fb9,
         type: 3}

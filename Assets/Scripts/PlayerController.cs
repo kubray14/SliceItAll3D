@@ -104,6 +104,7 @@ public class PlayerController : MonoBehaviour
 
     private void RotateControl()
     {
+        //print(transform.rotation.eulerAngles.x); 
         if (!isSlicing) // Kesmiyorsak.
         {
             if (!isStuck) // Ve Saplanmadýysak dönüþ yapýyoruz.
@@ -114,6 +115,7 @@ public class PlayerController : MonoBehaviour
                     {
                         if (!isSpeedDecreasing) //Bu açýya ilk girdiðimizde bu deðer true oluyor ve 1 kere yavaþlama metodunu çaðýrýyoruz.
                         {
+                            print("Azalacak");
                             LerpRotateSpeed(minRotateSpeed, speedChangeTimer);
                             isSpeedDecreasing = true;
                             isSpeedIncreasing = false;
@@ -207,7 +209,6 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(pushBackForce, ForceMode.Impulse);
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent(out IHittable iHittable))
@@ -216,4 +217,13 @@ public class PlayerController : MonoBehaviour
             SoundManager.Instance.PlayHandleHitSound();
         }
     }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.TryGetComponent(out IHittable iHittable))
+    //    {
+    //        iHittable.Hit(this, false);
+    //        SoundManager.Instance.PlayHandleHitSound();
+    //    }
+    //}
 }
