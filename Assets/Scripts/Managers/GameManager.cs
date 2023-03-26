@@ -24,6 +24,12 @@ public class GameManager : MonoBehaviour
         cameraController = FindObjectOfType<CameraController>();
     }
 
+    private void Start()
+    {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
+    }
+
     public void StartGame()
     {
         FindObjectOfType<TrailShowRoomUI>().SelectDefaultTrail();
