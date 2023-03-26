@@ -40,10 +40,6 @@ public class PlayerController : MonoBehaviour
         InputManager.Instance.OnClick += InputManager_OnClick; // InputManagerdaki OnClick eventine subscribe olduk.
     }
 
-    //private void OnDisable()
-    //{
-    //    GameManager.Instance.OnLevelStart -= GameManager_OnLevelStart;
-    //}
 
     private void GameManager_OnLevelStart()
     {
@@ -81,6 +77,7 @@ public class PlayerController : MonoBehaviour
             isStuck = false;
             rotateSpeed = maxRotateSpeed;
             rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
             rb.AddForce(Vector3.forward * forwardSpeed, ForceMode.Impulse);
             StartCoroutine(StuckProtect_Coroutine(0.4f));
@@ -97,6 +94,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            isFalling = false;
             DOTween.KillAll(); // LerpRotateSpeed metodu çalýþýyorsa kapatýyoruz. 
         }
     }
@@ -104,7 +102,8 @@ public class PlayerController : MonoBehaviour
 
     private void RotateControl()
     {
-        //print(transform.rotation.eulerAngles.x); 
+        //print(transform.rotation.eulerAngles);
+
         if (!isSlicing) // Kesmiyorsak.
         {
             if (!isStuck) // Ve Saplanmadýysak dönüþ yapýyoruz.
@@ -115,7 +114,6 @@ public class PlayerController : MonoBehaviour
                     {
                         if (!isSpeedDecreasing) //Bu açýya ilk girdiðimizde bu deðer true oluyor ve 1 kere yavaþlama metodunu çaðýrýyoruz.
                         {
-                            print("Azalacak");
                             LerpRotateSpeed(minRotateSpeed, speedChangeTimer);
                             isSpeedDecreasing = true;
                             isSpeedIncreasing = false;
@@ -130,11 +128,11 @@ public class PlayerController : MonoBehaviour
                             isSpeedIncreasing = true;
                             isSpeedDecreasing = false;
                         }
-
                     }
                 }
 
-                transform.Rotate(rotateSpeed * 360 * Time.deltaTime, 0, 0, Space.Self);
+                //transform.Rotate(rotateSpeed * 360 * Time.deltaTime, 0, 0, Space.Self);
+                rb.angularVelocity = new Vector3(rotateSpeed, 0, 0);
 
             }
         }
@@ -142,16 +140,14 @@ public class PlayerController : MonoBehaviour
         {
             if (transform.rotation.eulerAngles.x >= 15 && transform.rotation.eulerAngles.x <= 90 && transform.rotation.eulerAngles.y == 0 && transform.rotation.eulerAngles.z == 0) // Düzgün bir kesme açýsýndaysak.
             {
-                //transform.Rotate(sliceSpeed * 360 * Time.deltaTime, 0, 0, Space.Self);
+                rb.angularVelocity = Vector3.zero;
                 return;
             }
             else
             {
-                //float sliceAngle = 25f;
-                //if (transform.rotation.eulerAngles.x >= 270 || transform.rotation.eulerAngles.x <= sliceAngle) // Býçaðýn ucu 25 derece ön aþaðýya bakana kadar. Yani kesme pozisyonu
-                //{
-                transform.Rotate(rotateSpeed * 360 * Time.deltaTime, 0, 0, Space.Self); // Döndürmeye devam ediyoruz.
-                //}
+                //transform.Rotate(rotateSpeed * 360 * Time.deltaTime, 0, 0, Space.Self); // Döndürmeye devam ediyoruz.
+                print("abababa");
+                rb.angularVelocity = new Vector3(rotateSpeed, 0, 0);
             }
         }
     }
@@ -209,21 +205,21 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(pushBackForce, ForceMode.Impulse);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.TryGetComponent(out IHittable iHittable))
-        {
-            iHittable.Hit(this, false);
-            SoundManager.Instance.PlayHandleHitSound();
-        }
-    }
-
-    //private void OnCollisionEnter(Collision collision)
+    //private void OnTriggerEnter(Collider other)
     //{
-    //    if (collision.gameObject.TryGetComponent(out IHittable iHittable))
+    //    if (other.gameObject.TryGetComponent(out IHittable iHittable))
     //    {
     //        iHittable.Hit(this, false);
     //        SoundManager.Instance.PlayHandleHitSound();
     //    }
     //}
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent(out IHittable iHittable))
+        {
+            iHittable.Hit(this, false);
+            SoundManager.Instance.PlayHandleHitSound();
+        }
+    }
 }

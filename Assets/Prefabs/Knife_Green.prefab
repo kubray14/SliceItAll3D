@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 7168504824415144224}
   - component: {fileID: 1725331225414070620}
   - component: {fileID: 1725331225414070621}
-  - component: {fileID: 1725331225414070623}
+  - component: {fileID: 8891991872571309052}
   m_Layer: 0
   m_Name: Knife_Green
   m_TagString: Untagged
@@ -342,20 +342,19 @@ MonoBehaviour:
   - {fileID: 869349694804941605}
   trailTransform: {fileID: 7380373204148034850}
   myTrail: {fileID: 0}
---- !u!64 &1725331225414070623
-MeshCollider:
+--- !u!65 &8891991872571309052
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8265301884062735292}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4724490089129887149, guid: aee144e4563c1334cb45cb96736399e2, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.042908803, y: 0.052997608, z: 0.18499671}
+  m_Center: {x: -9.313226e-10, y: 0, z: 0.000000003725291}
 --- !u!1001 &7380373204048520956
 PrefabInstance:
   m_ObjectHideFlags: 0

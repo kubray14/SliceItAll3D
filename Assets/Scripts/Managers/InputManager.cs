@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour
 
     public event Action OnClick;
 
+
     private void Awake()
     {
         Instance = this;
@@ -24,4 +25,5 @@ public class InputManager : MonoBehaviour
             }
         }
     }
+
 }

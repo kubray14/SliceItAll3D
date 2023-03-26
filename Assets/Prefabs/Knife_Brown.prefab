@@ -750,7 +750,7 @@ GameObject:
   - component: {fileID: 3787317330493495397}
   - component: {fileID: 4613233822383693849}
   - component: {fileID: 4613233822383693848}
-  - component: {fileID: 4613233822383693850}
+  - component: {fileID: 5472920434966809193}
   m_Layer: 0
   m_Name: Knife_Brown
   m_TagString: Untagged
@@ -871,20 +871,19 @@ MonoBehaviour:
   - {fileID: 6621532605613328992}
   trailTransform: {fileID: 3573815692786437223}
   myTrail: {fileID: 0}
---- !u!64 &4613233822383693850
-MeshCollider:
+--- !u!65 &5472920434966809193
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2684326136487578361}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4724490089129887149, guid: aee144e4563c1334cb45cb96736399e2, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.042908803, y: 0.052997608, z: 0.18499668}
+  m_Center: {x: 9.313226e-10, y: 0, z: 0.000000003725291}
 --- !u!1 &2691784173075454426
 GameObject:
   m_ObjectHideFlags: 0
