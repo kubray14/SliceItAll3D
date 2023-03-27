@@ -7799,6 +7799,7 @@ GameObject:
   - component: {fileID: 1066482541}
   - component: {fileID: 1066482540}
   - component: {fileID: 1066482539}
+  - component: {fileID: 1066482543}
   m_Layer: 0
   m_Name: Cube (17)
   m_TagString: Ground
@@ -7844,8 +7845,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 112.616806, z: 1}
+  m_Center: {x: 0, y: 55.808395, z: 0}
 --- !u!23 &1066482541
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7896,6 +7897,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066482537}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1066482543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066482537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80badbfd4d36afc46b9e391816629027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyMultiplierText: {fileID: 0}
+  moneyMultiplier: 1
 --- !u!1001 &1067013968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9204,6 +9219,7 @@ GameObject:
   - component: {fileID: 1301504475}
   - component: {fileID: 1301504474}
   - component: {fileID: 1301504473}
+  - component: {fileID: 1301504476}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -9289,6 +9305,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301504471}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1301504476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301504471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80badbfd4d36afc46b9e391816629027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyMultiplierText: {fileID: 0}
+  moneyMultiplier: 1
 --- !u!1 &1303160618 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7157afd26212c434a9228acedd8058fa,

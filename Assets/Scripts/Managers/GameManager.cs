@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         FindObjectOfType<TrailShowRoomUI>().SelectDefaultTrail();
-        //FindObjectOfType<PlayerController>().Jump();
         isGameStarted = true;
         OnLevelStart?.Invoke();
         activePlayerController.Jump();
@@ -71,7 +70,7 @@ public class GameManager : MonoBehaviour
         LevelManager.Instance.RestartLevel();
     }
 
-    public void SetActiveKnife(PlayerController playerController)
+    public void SetActivePlayer(PlayerController playerController)
     {
         activePlayerController = playerController;
     }

@@ -31,11 +31,16 @@ public class KnifeShowRoom : MonoBehaviour
         }
     }
 
-
     private void SelectKnife(int knifeIndex)
     {
         knifeSelecter.SelectKnife(knifeIndex);
         PlayerPrefs.SetInt(PLAYER_PREFS_KNIFE_NUMBER, knifeIndex);
         PlayerPrefs.Save();
+    }
+
+    public void SelectKnifeDefault()
+    {
+        knifeNumber = PlayerPrefs.GetInt(PLAYER_PREFS_KNIFE_NUMBER, 0);
+        knifeSelecter.SelectKnife(knifeNumber);
     }
 }

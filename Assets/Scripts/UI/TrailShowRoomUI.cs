@@ -9,6 +9,12 @@ public class TrailShowRoomUI : MonoBehaviour
     [SerializeField] private List<Button> trailButtons;
     private int trailNumber;
 
+    private KnifeSelecter knifeSelecter;
+
+    private void Awake()
+    {
+        knifeSelecter = FindObjectOfType<KnifeSelecter>();
+    }
 
     private void Start()
     {
@@ -29,6 +35,17 @@ public class TrailShowRoomUI : MonoBehaviour
     {
         if (GameManager.Instance.activePlayerController != null)
         {
+            List<GameObject> trails = GameManager.Instance.activePlayerController.trails;
+            if (trailNumber <= trails.Count)
+            {
+                GameManager.Instance.activePlayerController.SelectTrail(trailNumber);
+                PlayerPrefs.SetInt(PLAYER_PREFS_TRAIL_NUMBER, trailNumber);
+                PlayerPrefs.Save();
+            }
+        }
+        else
+        {
+            FindObjectOfType<KnifeShowRoom>().SelectKnifeDefault();
             List<GameObject> trails = GameManager.Instance.activePlayerController.trails;
             if (trailNumber <= trails.Count)
             {

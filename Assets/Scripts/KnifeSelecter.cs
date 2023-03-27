@@ -21,7 +21,17 @@ public class KnifeSelecter : MonoBehaviour
         }
         myKnife = knifeList[knifeIndex];
         myKnife.gameObject.SetActive(true);
-        GameManager.Instance.SetActiveKnife(myKnife.GetComponent<PlayerController>());
+        GameManager.Instance.SetActivePlayer(myKnife.GetComponent<PlayerController>());
         myCameraController.SetPlayer(GameManager.Instance.GetActiveKnife());
+    }
+
+    public GameObject GetMyKnife()
+    {
+        return myKnife;
+    }
+
+    public void SetMyKnifeDefault()
+    {
+        FindObjectOfType<KnifeShowRoom>().SelectKnifeDefault();
     }
 }
