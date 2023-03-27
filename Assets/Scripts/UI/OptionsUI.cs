@@ -12,7 +12,7 @@ public class OptionsUI : MonoBehaviour
 
     private void Start()
     {
-        soundVolumeText.text = "Sound Volume : " + SoundManager.Instance.GetVolume();
+        soundVolumeText.text = "Sound Volume : " + (int)SoundManager.Instance.GetVolume();
         soundVolumeButton.onClick.AddListener(() =>
         {
             ChangeSoundVolume();
@@ -24,6 +24,7 @@ public class OptionsUI : MonoBehaviour
             GameManager.Instance.ResumeGame();
             Time.timeScale = 1.0f;
         });
+
     }
 
     private void Hide()
@@ -34,6 +35,6 @@ public class OptionsUI : MonoBehaviour
     private void ChangeSoundVolume()
     {
         SoundManager.Instance.ChangeSoundVolume();
-        soundVolumeText.text = "Sound Volume : " + Mathf.CeilToInt(SoundManager.Instance.GetVolume());
+        soundVolumeText.text = "Sound Volume : " + (int)SoundManager.Instance.GetVolume();
     }
 }

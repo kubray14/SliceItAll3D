@@ -14,6 +14,5 @@ public class Ground : MonoBehaviour, IHittable
         {
             playerController.PushBack();
         }
-        
     }
 }

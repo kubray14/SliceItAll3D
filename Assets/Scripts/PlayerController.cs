@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool canStuck;
     [SerializeField] private bool isFalling;
     [SerializeField] private Vector3 pushBackForce = new Vector3(0, 3, -3);
+    public List<GameObject> trails;
+    [SerializeField] private Transform trailTransform;
+    [SerializeField] private GameObject myTrail;
 
     private bool isSpeedIncreasing;
     private bool isSpeedDecreasing;
@@ -33,7 +36,18 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.OnLevelStart += GameManager_OnLevelStart;
         InputManager.Instance.OnClick += InputManager_OnClick; // InputManagerdaki OnClick eventine subscribe olduk.
+    }
+
+
+    private void GameManager_OnLevelStart()
+    {
+        transform.parent = null; // KnifeSelecter'in parentligindan cikiyoruz.
+        if (!gameObject.activeInHierarchy)
+        {
+            InputManager.Instance.OnClick -= InputManager_OnClick; // InputManagerdaki OnClick eventine subscribe olduk.
+        }
     }
 
     private void OnDestroy()
@@ -46,7 +60,7 @@ public class PlayerController : MonoBehaviour
         Jump();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         CheckFalling();
         RotateControl();
@@ -63,9 +77,10 @@ public class PlayerController : MonoBehaviour
             isStuck = false;
             rotateSpeed = maxRotateSpeed;
             rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
             rb.AddForce(Vector3.forward * forwardSpeed, ForceMode.Impulse);
-            StartCoroutine(StuckProtect_Coroutine(0.4f));
+            StartCoroutine(StuckProtect_Coroutine(0.3f));
             DOTween.KillAll(); // LerpRotateSpeed metodu çalýþýyorsa kapatýyoruz. 
         }
 
@@ -77,11 +92,18 @@ public class PlayerController : MonoBehaviour
         {
             isFalling = true;
         }
+        else
+        {
+            isFalling = false;
+            DOTween.KillAll(); // LerpRotateSpeed metodu çalýþýyorsa kapatýyoruz. 
+        }
     }
 
 
     private void RotateControl()
     {
+        //print(transform.rotation.eulerAngles);
+
         if (!isSlicing) // Kesmiyorsak.
         {
             if (!isStuck) // Ve Saplanmadýysak dönüþ yapýyoruz.
@@ -106,11 +128,10 @@ public class PlayerController : MonoBehaviour
                             isSpeedIncreasing = true;
                             isSpeedDecreasing = false;
                         }
-
                     }
                 }
 
-                transform.Rotate(rotateSpeed * 360 * Time.deltaTime, 0, 0, Space.Self);
+                rb.angularVelocity = new Vector3(rotateSpeed, 0, 0);
 
             }
         }
@@ -118,16 +139,12 @@ public class PlayerController : MonoBehaviour
         {
             if (transform.rotation.eulerAngles.x >= 15 && transform.rotation.eulerAngles.x <= 90 && transform.rotation.eulerAngles.y == 0 && transform.rotation.eulerAngles.z == 0) // Düzgün bir kesme açýsýndaysak.
             {
-                //transform.Rotate(sliceSpeed * 360 * Time.deltaTime, 0, 0, Space.Self);
+                rb.angularVelocity = Vector3.zero;
                 return;
             }
             else
             {
-                //float sliceAngle = 25f;
-                //if (transform.rotation.eulerAngles.x >= 270 || transform.rotation.eulerAngles.x <= sliceAngle) // Býçaðýn ucu 25 derece ön aþaðýya bakana kadar. Yani kesme pozisyonu
-                //{
-                transform.Rotate(rotateSpeed * 360 * Time.deltaTime, 0, 0, Space.Self); // Döndürmeye devam ediyoruz.
-                //}
+                rb.angularVelocity = new Vector3(rotateSpeed, 0, 0);
             }
         }
     }
@@ -139,13 +156,6 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSecondsRealtime(time);
         canStuck = true;
         yield break;
-    }
-
-    public void PushBack() // Sapýn temas halinde geri tepmesi.
-    {
-        isSlicing = false;
-        rb.velocity = Vector3.zero;
-        rb.AddForce(pushBackForce, ForceMode.Impulse);
     }
 
     private void LerpRotateSpeed(float newSpeed, float time) // rotateSpeed'i newSpeed'e time sürede getiriyor.
@@ -166,15 +176,45 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Finish()
+    {
+        SoundManager.Instance.PlayStuckSound();
+        sliceController.sliceNum = 0;
+        isSlicing = false;
+        isStuck = true;
+        rb.velocity = Vector3.zero;
+        rb.isKinematic = true;
+    }
+
     public void SliceStarted()
     {
         isSlicing = true;
         rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, 0);
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void SelectTrail(int trailIndex)
     {
-        if (other.gameObject.TryGetComponent(out IHittable iHittable))
+        if (trailTransform != null)
+        {
+            if (myTrail != null)
+            {
+                myTrail.gameObject.SetActive(false);
+            }
+            myTrail = trails[trailIndex];
+            myTrail.gameObject.SetActive(true);
+        }
+    }
+
+    public void PushBack() // Sapýn temas halinde geri tepmesi.
+    {
+        isSlicing = false;
+        rb.velocity = Vector3.zero;
+        rb.AddForce(pushBackForce, ForceMode.Impulse);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent(out IHittable iHittable))
         {
             iHittable.Hit(this, false);
             SoundManager.Instance.PlayHandleHitSound();

@@ -14,7 +14,7 @@ public class SliceController : MonoBehaviour
     private PlayerController playerController;
 
 
-    private void Start()
+    private void OnEnable()
     {
         playerController = GetComponentInParent<PlayerController>();
     }
@@ -38,6 +38,7 @@ public class SliceController : MonoBehaviour
             rigidbody.AddExplosionForce(explosionForce, obj.transform.position, explosionRadius); // 2 parçanýn birbirinden uzaklaþmasý kodu
             StartCoroutine(waitForRb(0.1f, rigidbody));
             rigidbody.isKinematic = kinematik;
+            StartCoroutine(waitForInactive(4f, obj));
         }
     }
 
@@ -45,6 +46,12 @@ public class SliceController : MonoBehaviour
     {
         yield return new WaitForSeconds(sec);
         rb.useGravity = gravity;
+        yield break;
+    }
+    private IEnumerator waitForInactive(float sec, GameObject obj)                                    // Bu coroutini delay için kullandýk çünkü önce belli bir mesafe birbirlerinden uzaklaþýp düþmeleri için.
+    {
+        yield return new WaitForSeconds(sec);
+        obj.SetActive(false);
         yield break;
     }
 
@@ -82,11 +89,11 @@ public class SliceController : MonoBehaviour
                     AddComponent(slicedObjTop, false);
                     AddComponent(slicedObjDown, true);
                 }
-
+                cuttableObject.ShowScoreCanvas(transform.position);
                 Destroy(other.gameObject);
                 counter++;
                 sliceNum++;
             }
-        }   
+        }
     }
-} 
+}

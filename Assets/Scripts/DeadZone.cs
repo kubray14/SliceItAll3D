@@ -6,7 +6,6 @@ public class DeadZone : MonoBehaviour, IHittable
 {
     public void Hit(PlayerController playerController, bool isSharpEdgeCollided)
     {
-        print("Game Over!!!");
-        Destroy(playerController.gameObject);
+        GameManager.Instance.PlayerDeath();
     }
 }
