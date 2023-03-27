@@ -23,7 +23,7 @@ public class Finish : MonoBehaviour, IHittable
         {
             if (isSharpEdgeCollided)
             {
-                playerController.Stuck();
+                playerController.Finish();
                 GameManager.Instance.FinishLevel(moneyMultiplier);
 
             }

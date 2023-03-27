@@ -177,6 +177,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6111482192701528235, guid: 2dd011ac6068fb4479b44aca3c49d8e0,
         type: 3}
+      propertyPath: jumpSpeed
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111482192701528235, guid: 2dd011ac6068fb4479b44aca3c49d8e0,
+        type: 3}
       propertyPath: rotateSpeed
       value: 6.9
       objectReference: {fileID: 0}
@@ -324,6 +329,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Drag
       value: 0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725331225414070621, guid: 75476c150f9afdb4f85a29ed62658db6,
+        type: 3}
+      propertyPath: jumpSpeed
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1725331225414070621, guid: 75476c150f9afdb4f85a29ed62658db6,
         type: 3}
@@ -550,6 +560,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7097721768458642935, guid: 8cf6ff81bbc3fb440befe90ef2002f22,
         type: 3}
+      propertyPath: jumpSpeed
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7097721768458642935, guid: 8cf6ff81bbc3fb440befe90ef2002f22,
+        type: 3}
       propertyPath: rotateSpeed
       value: 6.9
       objectReference: {fileID: 0}
@@ -693,6 +708,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CastShadows
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613233822383693848, guid: 4353ea390348c6f4aadffab29aaa8fb9,
+        type: 3}
+      propertyPath: jumpSpeed
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4613233822383693848, guid: 4353ea390348c6f4aadffab29aaa8fb9,
         type: 3}

@@ -10056,7 +10056,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1051027225, guid: 1f615897c33436445b17471bfafe2782, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1051027227, guid: 1f615897c33436445b17471bfafe2782, type: 3}
       propertyPath: m_IsTrigger
@@ -10183,12 +10183,12 @@ PrefabInstance:
     - target: {fileID: 4009652017736578480, guid: 1f615897c33436445b17471bfafe2782,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4774221335454195931, guid: 1f615897c33436445b17471bfafe2782,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4813078613716136578, guid: 1f615897c33436445b17471bfafe2782,
         type: 3}
@@ -10213,7 +10213,7 @@ PrefabInstance:
     - target: {fileID: 6749924126509992306, guid: 1f615897c33436445b17471bfafe2782,
         type: 3}
       propertyPath: m_Constraints
-      value: 114
+      value: 98
       objectReference: {fileID: 0}
     - target: {fileID: 7216505671984347658, guid: 1f615897c33436445b17471bfafe2782,
         type: 3}

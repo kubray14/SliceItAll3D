@@ -17,12 +17,18 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.touchCount > 0)
         {
-            if (!GameManager.Instance.isGamePaused && GameManager.Instance.isGameStarted && !GameManager.Instance.isPlayerDead && !GameManager.Instance.isLevelFinished)
+            Touch touch = Input.GetTouch(0);
+            
+            if (touch.phase == TouchPhase.Began)
             {
-                OnClick?.Invoke();
+                if (!GameManager.Instance.isGamePaused && GameManager.Instance.isGameStarted && !GameManager.Instance.isPlayerDead && !GameManager.Instance.isLevelFinished)
+                {
+                    OnClick?.Invoke();
+                }
             }
+
         }
     }
 

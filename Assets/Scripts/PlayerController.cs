@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
             rb.angularVelocity = Vector3.zero;
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
             rb.AddForce(Vector3.forward * forwardSpeed, ForceMode.Impulse);
-            StartCoroutine(StuckProtect_Coroutine(0.4f));
+            StartCoroutine(StuckProtect_Coroutine(0.1f));
             DOTween.KillAll(); // LerpRotateSpeed metodu çalýþýyorsa kapatýyoruz. 
         }
 
@@ -131,7 +131,6 @@ public class PlayerController : MonoBehaviour
                     }
                 }
 
-                //transform.Rotate(rotateSpeed * 360 * Time.deltaTime, 0, 0, Space.Self);
                 rb.angularVelocity = new Vector3(rotateSpeed, 0, 0);
 
             }
@@ -145,8 +144,6 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                //transform.Rotate(rotateSpeed * 360 * Time.deltaTime, 0, 0, Space.Self); // Döndürmeye devam ediyoruz.
-                print("abababa");
                 rb.angularVelocity = new Vector3(rotateSpeed, 0, 0);
             }
         }
@@ -179,6 +176,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Finish()
+    {
+        SoundManager.Instance.PlayStuckSound();
+        sliceController.sliceNum = 0;
+        isSlicing = false;
+        isStuck = true;
+        rb.velocity = Vector3.zero;
+        rb.isKinematic = true;
+    }
+
     public void SliceStarted()
     {
         isSlicing = true;
@@ -204,15 +211,6 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.AddForce(pushBackForce, ForceMode.Impulse);
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.TryGetComponent(out IHittable iHittable))
-    //    {
-    //        iHittable.Hit(this, false);
-    //        SoundManager.Instance.PlayHandleHitSound();
-    //    }
-    //}
 
     private void OnCollisionEnter(Collision collision)
     {

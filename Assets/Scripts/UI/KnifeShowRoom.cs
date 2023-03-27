@@ -34,9 +34,8 @@ public class KnifeShowRoom : MonoBehaviour
 
     private void SelectKnife(int knifeIndex)
     {
-
-            knifeSelecter.SelectKnife(knifeIndex);
-            PlayerPrefs.SetInt(PLAYER_PREFS_KNIFE_NUMBER, knifeIndex);
-            PlayerPrefs.Save();
+        knifeSelecter.SelectKnife(knifeIndex);
+        PlayerPrefs.SetInt(PLAYER_PREFS_KNIFE_NUMBER, knifeIndex);
+        PlayerPrefs.Save();
     }
 }

@@ -33,9 +33,11 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         FindObjectOfType<TrailShowRoomUI>().SelectDefaultTrail();
-        FindObjectOfType<PlayerController>().Jump();
+        //FindObjectOfType<PlayerController>().Jump();
         isGameStarted = true;
         OnLevelStart?.Invoke();
+        activePlayerController.Jump();
+
     }
 
     public void PauseGame()
