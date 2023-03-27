@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
             rb.angularVelocity = Vector3.zero;
             rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
             rb.AddForce(Vector3.forward * forwardSpeed, ForceMode.Impulse);
-            StartCoroutine(StuckProtect_Coroutine(0.1f));
+            StartCoroutine(StuckProtect_Coroutine(0.3f));
             DOTween.KillAll(); // LerpRotateSpeed metodu çalýþýyorsa kapatýyoruz. 
         }
 

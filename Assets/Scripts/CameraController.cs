@@ -16,6 +16,7 @@ public class CameraController : MonoBehaviour
         {
             SmoothFollowPlayer();
         }
+
     }
 
     private void SmoothFollowPlayer()
